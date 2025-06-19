@@ -1,3 +1,7 @@
+This project was cloned from [PocketFlow-Tutorial-Codebase-Knowledge](https://github.com/The-Pocket/PocketFlow-Tutorial-Codebase-Knowledge).
+
+After studying the codebase, I found that it is a great example of how to use Pocket Flow to build an AI agent that analyzes GitHub repositories and creates beginner-friendly tutorials explaining exactly how the code works.
+
 <h1 align="center">Turns Codebase into Easy Tutorial with AI</h1>
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
