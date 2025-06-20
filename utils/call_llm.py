@@ -3,6 +3,10 @@ import os
 import logging
 import json
 from datetime import datetime
+from dotenv import load_dotenv
+
+# .env 파일에서 환경 변수 로드
+load_dotenv()
 
 # Configure logging
 log_directory = os.getenv("LOG_DIR", "logs")
@@ -24,6 +28,9 @@ logger.addHandler(file_handler)
 # Simple cache configuration
 cache_file = "llm_cache.json"
 
+#####################################################################
+#                           LLM selection                           #
+#####################################################################
 
 # By default, we Google Gemini 2.5 pro, as it shows great performance for code understanding
 def call_llm(prompt: str, use_cache: bool = True) -> str:
@@ -54,11 +61,12 @@ def call_llm(prompt: str, use_cache: bool = True) -> str:
     #     location=os.getenv("GEMINI_LOCATION", "us-central1")
     # )
 
-    # You can comment the previous line and use the AI Studio key instead:
+    # You can comment the previous line and use the AI Studio key instead: 
+    # 환경 변수가 존재하지 않거나 값이 설정되지 않았다면, 두 번째 인자로 제공된 기본값 ""(빈 문자열)을 반환
     client = genai.Client(
         api_key=os.getenv("GEMINI_API_KEY", ""),
     )
-    model = os.getenv("GEMINI_MODEL", "gemini-2.5-pro-exp-03-25")
+    model = os.getenv("GEMINI_MODEL", "gemini-2.5-pro-preview-03-25")
     # model = os.getenv("GEMINI_MODEL", "gemini-2.5-flash-preview-04-17")
     
     response = client.models.generate_content(model=model, contents=[prompt])

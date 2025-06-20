@@ -2,6 +2,22 @@ This project was cloned from [PocketFlow-Tutorial-Codebase-Knowledge](https://gi
 
 After studying the codebase, I found that it is a great example of how to use Pocket Flow to build an AI agent that analyzes GitHub repositories and creates beginner-friendly tutorials explaining exactly how the code works.
 
+# Virtual Environment : tutorial_builder
+```bash
+conda create -n tutorial_builder python=3.13
+conda activate tutorial_builder
+pip install -r requirements.txt
+```
+# Run the main script
+```bash
+python main.py --repo https://github.com/username/repo --language "Korean"
+
+# Or, analyze a local directory
+python main.py --dir /path/to/your/codebase --language "Korean"
+```
+# How to show a graph in md format
+- VS Code extension: Markdown Preview Enhanced
+
 <h1 align="center">Turns Codebase into Easy Tutorial with AI</h1>
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
