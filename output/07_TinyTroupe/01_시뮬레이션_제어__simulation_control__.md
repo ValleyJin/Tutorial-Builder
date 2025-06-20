@@ -202,7 +202,6 @@ sequenceDiagram
     Func-->>UserCode: 결과 반환 ("결과 A")
     UserCode->>Control: end() 호출 (id="sim1")
     Note over Control,Sim: Simulation "sim1" 종료, 최종 체크포인트 저장
-end
 ```
 
 ### 코드에서의 모습
