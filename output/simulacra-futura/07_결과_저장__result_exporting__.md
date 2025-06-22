@@ -36,11 +36,11 @@
 
 ```mermaid
 graph TD
-    R[실행 결과 폴더<br>(예: simulation_results/20231027_153000)] --> A(agents.json);
-    R --> G1(generation_1_scenarios.json);
-    R --> G2(generation_2_scenarios.json);
-    R --> GN(generation_N_scenarios.json);
-    R --> AS(adopted_scenarios.json);
+    R["실행 결과 폴더<br>(예: simulation_results/20231027_153000)"] --> A("agents.json");
+    R --> G1("generation_1_scenarios.json");
+    R --> G2("generation_2_scenarios.json");
+    R --> GN("generation_N_scenarios.json");
+    R --> AS("adopted_scenarios.json");
 ```
 
 이제 각 파일에 어떤 내용이 담기는지 좀 더 자세히 살펴보겠습니다.

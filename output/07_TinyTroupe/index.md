@@ -1,63 +1,65 @@
 # Tutorial: 07_TinyTroupe
 
-이 프로젝트는 **타이니퍼슨**이라는 *페르소나 기반* 가상 인간 에이전트를 시뮬레이션하는 라이브러리입니다. 각 타이니퍼슨은 고유한 성격, 목표, 기억을 가지고 **타이니월드**라는 가상 환경에서 다른 캐릭터들과 상호작용하며 자신만의 이야기를 만듭니다. *시뮬레이션 제어* 기능을 통해 실험 과정을 효율적으로 관리하고, *OpenAI 유틸리티*를 활용하여 에이전트의 지능적인 행동을 생성합니다. 이를 통해 인간 행동에 대한 통찰을 얻고 상상력을 강화하는 것을 목표로 합니다.
+`07_TinyTroupe` is a Python project for building *simulations* featuring **intelligent agents** called `TinyPerson`.
+These agents exist and interact within a `TinyWorld` (the environment). They can *think*, *remember* past events using `TinyMemory`,
+employ `TinyMentalFaculty` for cognitive abilities, and use `TinyTool`s to perform specific tasks.
+The "brain" of each agent is powered by **Large Language Models (LLMs)** through an `LLM Interaction` interface.
+A `Simulation` component acts as the overall controller, managing agents, environments, and `TinyFactory` instances that create new agents.
+The `Simulation` also handles caching and transactional execution to ensure reproducibility and efficiency.
 
 
 **Source Repository:** [None](None)
 
 ```mermaid
 flowchart TD
-    A0["타이니퍼슨 (TinyPerson)
+    A0["TinyPerson (Agent)
 "]
-    A1["타이니월드 (TinyWorld)
+    A1["TinyWorld (Environment)
 "]
-    A2["시뮬레이션 제어 (Simulation Control)
+    A2["Simulation (Controller)
 "]
-    A3["OpenAI 유틸리티 (OpenAI Utilities)
+    A3["LLM Interaction (AI Brain Interface)
 "]
-    A4["정신 능력 (Mental Faculties)
+    A4["TinyMemory (Agent Memory)
 "]
-    A5["기억 (Memory)
+    A5["TinyMentalFaculty (Agent Cognitive Abilities)
 "]
-    A6["도구 (Tools)
+    A6["TinyTool (Agent Capability Extenders)
 "]
-    A7["타이니퍼슨 팩토리 (TinyPerson Factory)
+    A7["TinyFactory (Entity Creation)
 "]
-    A0 -- "상호작용 실행" --> A1
-    A0 -- "지능 생성 요청" --> A3
-    A0 -- "보유 및 활용" --> A4
-    A0 -- "보유" --> A5
-    A1 -- "실행 환경 제공" --> A0
-    A2 -- "상태/트랜잭션 관리" --> A0
-    A2 -- "상태/트랜잭션 관리" --> A1
-    A2 -- "LLM 호출 캐싱 관리" --> A3
-    A2 -- "상태/트랜잭션 관리" --> A7
-    A4 -- "기억 접근 및 활용" --> A5
-    A4 -- "도구 사용 지시" --> A6
-    A5 -- "정보 저장 및 제공" --> A0
-    A6 -- "사용 가능 액션 정의" --> A0
-    A7 -- "객체 생성" --> A0
-    A7 -- "생성 로직 요청" --> A3
+    A0 -- "Possesses memory" --> A4
+    A0 -- "Employs faculties" --> A5
+    A0 -- "Uses LLM for decisions" --> A3
+    A1 -- "Contains agents" --> A0
+    A2 -- "Manages & Caches agents" --> A0
+    A2 -- "Manages & Caches worlds" --> A1
+    A2 -- "Manages & Caches factories" --> A7
+    A2 -- "Manages cached LLM calls" --> A3
+    A4 -- "Is a mental faculty" --> A5
+    A5 -- "Enables tool use" --> A6
+    A7 -- "Creates agents" --> A0
+    A7 -- "Uses LLM for generation" --> A3
 ```
 
 ## Chapters
 
-1. [시뮬레이션 제어 (Simulation Control)
-](01_시뮬레이션_제어__simulation_control__.md)
-2. [타이니퍼슨 (TinyPerson)
-](02_타이니퍼슨__tinyperson__.md)
-3. [타이니월드 (TinyWorld)
-](03_타이니월드__tinyworld__.md)
-4. [OpenAI 유틸리티 (OpenAI Utilities)
-](04_openai_유틸리티__openai_utilities__.md)
-5. [타이니퍼슨 팩토리 (TinyPerson Factory)
-](05_타이니퍼슨_팩토리__tinyperson_factory__.md)
-6. [정신 능력 (Mental Faculties)
-](06_정신_능력__mental_faculties__.md)
-7. [기억 (Memory)
-](07_기억__memory__.md)
-8. [도구 (Tools)
-](08_도구__tools__.md)
+1. [Simulation (Controller)
+](01_simulation__controller__.md)
+2. [TinyPerson (Agent)
+](02_tinyperson__agent__.md)
+3. [TinyWorld (Environment)
+](03_tinyworld__environment__.md)
+4. [LLM Interaction (AI Brain Interface)
+](04_llm_interaction__ai_brain_interface__.md)
+5. [TinyFactory (Entity Creation)
+](05_tinyfactory__entity_creation__.md)
+6. [TinyMentalFaculty (Agent Cognitive Abilities)
+](06_tinymentalfaculty__agent_cognitive_abilities__.md)
+7. [TinyMemory (Agent Memory)
+](07_tinymemory__agent_memory__.md)
+8. [TinyTool (Agent Capability Extenders)
+](08_tinytool__agent_capability_extenders__.md)
 
 
 ---

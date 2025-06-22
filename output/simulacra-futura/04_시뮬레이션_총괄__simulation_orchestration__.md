@@ -164,28 +164,28 @@ from result_exporter import save_simulation_results # 결과 저장 함수
 
 ```mermaid
 sequenceDiagram
-    participant User as 사용자
-    participant Main as main.py
-    participant SimRun as simulation.py (run_simulation)
-    participant InitAgent as initialize_agents
-    participant GenScen as generate_scenarios_for_agents
-    participant EvolveGen as evolve_generation
-    participant SaveRes as save_simulation_results
-    participant VisRes as (선택적) visualize_simulation_results
+    participant User as "사용자"
+    participant Main as "main.py"
+    participant SimRun as "simulation.py (run_simulation)"
+    participant InitAgent as "initialize_agents"
+    participant GenScen as "generate_scenarios_for_agents"
+    participant EvolveGen as "evolve_generation"
+    participant SaveRes as "save_simulation_results"
+    participant VisRes as "(선택적) visualize_simulation_results"
 
-    User->>Main: 시뮬레이션 실행!
-    Main->>SimRun: run_simulation() 호출
-    SimRun->>InitAgent: 에이전트 초기화 요청
-    InitAgent-->>SimRun: 초기 에이전트 목록 반환
-    SimRun->>GenScen: 초기 시나리오 생성 요청 (에이전트 목록, 주제 전달)
-    GenScen-->>SimRun: 시나리오가 추가된 에이전트 목록 반환
-    loop 정해진 세대 수만큼 반복
-        SimRun->>EvolveGen: 다음 세대 진화 요청 (현재 에이전트 목록 전달)
-        EvolveGen-->>SimRun: 진화된 에이전트 목록 반환
+    User->>Main: "시뮬레이션 실행!"
+    Main->>SimRun: "run_simulation() 호출"
+    SimRun->>InitAgent: "에이전트 초기화 요청"
+    InitAgent-->>SimRun: "초기 에이전트 목록 반환"
+    SimRun->>GenScen: "초기 시나리오 생성 요청 (에이전트 목록, 주제 전달)"
+    GenScen-->>SimRun: "시나리오가 추가된 에이전트 목록 반환"
+    loop "정해진 세대 수만큼 반복"
+        SimRun->>EvolveGen: "다음 세대 진화 요청 (현재 에이전트 목록 전달)"
+        EvolveGen-->>SimRun: "진화된 에이전트 목록 반환"
     end
-    SimRun->>SaveRes: 최종 결과 저장 요청
-    SaveRes-->>SimRun: 저장 완료
-    SimRun-->>Main: 모든 세대 데이터 반환 (이후 VisRes 호출 가능)
+    SimRun->>SaveRes: "최종 결과 저장 요청"
+    SaveRes-->>SimRun: "저장 완료"
+    SimRun-->>Main: "모든 세대 데이터 반환 (이후 VisRes 호출 가능)"
 ```
 
 이처럼 `run_simulation()` 함수는 `simulacra-futura`의 여러 모듈들을 마치 오케스트라 단원처럼 조화롭게 사용하여, 설정부터 최종 결과 도출까지의 복잡한 시뮬레이션 과정을 총괄합니다.
@@ -194,15 +194,15 @@ sequenceDiagram
 
 ```mermaid
 graph TD
-    Start[시작: main.py 실행] --> LoadConfig(설정 로드<br>config.toml<br>[[제 5장: 설정 관리](05_설정_관리__configuration_management__.md)]);
-    LoadConfig --> InitAgents(에이전트 초기화<br>initialize_agents<br>[[제 1장: 에이전트](01_에이전트__agent__.md), [[제 2장: 인구통계 및 세계관 생성](02_인구통계_및_세계관_생성__demographic_and_worldview_generation__.md)]);
-    InitAgents --> GenInitialScenarios(초기 시나리오 생성<br>generate_scenarios_for_agents<br>[[제 3장: 시나리오 생성 및 진화](03_시나리오_생성_및_진화__scenario_generation_and_evolution__.md)]);
-    GenInitialScenarios --> EvolutionLoop{세대 반복};
-    EvolutionLoop -- 각 세대 --> EvolveGen(시나리오 진화<br>evolve_generation<br>[[제 3장: 시나리오 생성 및 진화](03_시나리오_생성_및_진화__scenario_generation_and_evolution__.md)]);
+    Start["시작: main.py 실행"] --> LoadConfig["설정 로드<br>config.toml<br>제 5장: 설정 관리"];
+    LoadConfig --> InitAgents["에이전트 초기화<br>initialize_agents<br>제 1장: 에이전트, 제 2장: 인구통계 및 세계관 생성"];
+    InitAgents --> GenInitialScenarios["초기 시나리오 생성<br>generate_scenarios_for_agents<br>제 3장: 시나리오 생성 및 진화"];
+    GenInitialScenarios --> EvolutionLoop{"세대 반복"};
+    EvolutionLoop -- "각 세대" --> EvolveGen["시나리오 진화<br>evolve_generation<br>제 3장: 시나리오 생성 및 진화"];
     EvolveGen --> EvolutionLoop;
-    EvolutionLoop -- 완료 --> SaveResults(결과 저장<br>save_simulation_results<br>[[제 7장: 결과 저장](07_결과_저장__result_exporting__.md)]);
-    SaveResults --> OptionalVis(시각화 (선택)<br>visualize_simulation_results<br>[[제 6장: 데이터 시각화](06_데이터_시각화__data_visualization__.md)]);
-    OptionalVis --> End[종료];
+    EvolutionLoop -- "완료" --> SaveResults["결과 저장<br>save_simulation_results<br>제 7장: 결과 저장"];
+    SaveResults --> OptionalVis["시각화 (선택)<br>visualize_simulation_results<br>제 6장: 데이터 시각화"];
+    OptionalVis --> End["종료"];
 ```
 
 ## 정리하며

@@ -120,9 +120,9 @@ if agent_worldview:
 
 ```mermaid
 graph TD
-    D[인구통계 정보<br>(Demographics)] -- 배경 제공 --> A[에이전트 (Agent)];
-    W[세계관<br>(Worldview)] -- 관점 제공 --> A;
-    D -- 영향 --> W;
+    D["인구통계 정보<br>(Demographics)"] -- "배경 제공" --> A["에이전트 (Agent)"];
+    W["세계관<br>(Worldview)"] -- "관점 제공" --> A;
+    D -- "영향" --> W;
 ```
 
 인구통계 정보는 에이전트의 기본적인 배경을 설정하고, 이 배경은 세계관 형성에 영향을 줍니다. 그리고 이 두 가지가 합쳐져 비로소 한 명의 '생각하는 에이전트'가 탄생하는 것입니다.

@@ -120,6 +120,7 @@ This is a tutorial project of [Pocket Flow](https://github.com/The-Pocket/Pocket
    ```
 
 5. Generate a complete codebase tutorial by running the main script:
+
     ```bash
     # Analyze a GitHub repository
     python main.py --repo https://github.com/username/repo --include "*.py" "*.js" --exclude "tests/*" --max-size 50000
@@ -135,8 +136,8 @@ This is a tutorial project of [Pocket Flow](https://github.com/The-Pocket/Pocket
     - `-n, --name` - Project name (optional, derived from URL/directory if omitted)
     - `-t, --token` - GitHub token (or set GITHUB_TOKEN environment variable)
     - `-o, --output` - Output directory (default: ./output)
-    - `-i, --include` - Files to include (e.g., "`*.py`" "`*.js`")
-    - `-e, --exclude` - Files to exclude (e.g., "`tests/*`" "`docs/*`")
+    - `-i, --include` - Files to include (e.g., "*.py" "*.js")
+    - `-e, --exclude` - Files to exclude (e.g., "tests/*" "docs/*")
     - `-s, --max-size` - Maximum file size in bytes (default: 100KB)
     - `--language` - Language for the generated tutorial (default: "english")
     - `--max-abstractions` - Maximum number of abstractions to identify (default: 10)

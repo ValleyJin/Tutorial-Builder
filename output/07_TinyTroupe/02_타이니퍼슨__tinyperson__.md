@@ -138,8 +138,7 @@ sequenceDiagram
     LLM-->>Rowoon: 행동("기분 좋아요!") 및 새 인지 상태 반환
     Note over Rowoon,Memory: 행동("기분 좋아요!")을 에피소드 기억에 기록
     Rowoon->>Rowoon: 인지 상태 업데이트 (예: 감정=좋음)
-    Rowoon-->>User: "기분 좋아요!" (콘솔에 출력)
-end
+    Rowoon-->>User: "기분 좋아요!"
 ```
 
 **관련 코드 살펴보기 (`tinytroupe/agent/tiny_person.py`):**
